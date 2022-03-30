@@ -38,9 +38,13 @@ This module requires the following modules/libraries:
 ## Future enhancement app:
 
 -use Navigation component
+
 -add kotlin-dsl with center build src to control dependencies
+
 -enhancement in ui
+
 -add more unit testing , ui test
+
 -use Mockk library for testing
 
 
