@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grend">#35296D</color>
+    <color name="homeAccent">#6B207A</color>
+    <color name="homeAccent1">#C876A0</color>
+    <color name="home2">#63197B</color>
+    <color name="home3">#C363A3</color>
+    <color name="colorFaceBookBg">#3B5998</color>
+    <color name="yellew">#FFD245</color>
+    <color name="yellew2">#FFE951</color>
+    <color name="greyMake">#C7C7CC</color>
+    <color name="greyMake3">#80FFFFFF</color>
+    <color name="greyMake2">#858585</color>
+    <color name="greywhite">#FCFCFC</color>
+    <color name="greywhite2">#F7F7F7</color>
+    <color name="progress_bar_line">#D0151C</color>
+    <color name="example_4_grey">#474747</color>
+    <color name="example_4_green">#4BAF69</color>
+    <color name="example_4_grey_past">#BEBEBE</color>
+    <color name="grey_past">#EAEAEA</color>
+    <color name="change_positive">#00FF00</color>
+    <color name="change_negative">#FF0000</color>
+    <color name="black_5">#0D000000</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_10">#1A000000</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_10">#1AFFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_25">#40FFFFFF</color> <!-- 5 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_20">#33000000</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_30">#4D000000</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
+    <color name="white0">#CCEFEFF4</color> <!-- 20 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_25">#40000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_35">#59000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="black_60">#99000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_35">#59FFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_60">#99FFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="white_30">#4DFFFFFF</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+
+    <color name="red">#FF0000</color>
+    <color name="greyLine">#C8C7CC</color>
+    <color name="whatsBgk">#25D366</color>
+    <color name="black">#000000</color>
+    <color name="grey">#696969</color>
+    <color name="grey33">#333333</color>
+    <color name="grey1">#2A2A2A</color>
+    <color name="greylight">#D3D3D3</color>
+    <color name="colorTransparent">#00b75c00</color>
+    <color name="colorTransparen2t">#0F1230</color>
+    <color name="toolbarTransparent">#00FFFFFF</color>
+    <color name="red_700">#d32f2f</color>
+    <color name="red_800">#c62828</color>
+
+    <color name="shpbr_primary_progress">#FF0000</color>
+    <color name="greyChoose">#545454</color>
+    <color name="grey3">#5D5D5D</color>
+    <color name="windowBackground">#35296D</color>
+
+    <color name="colorPrimary">#032541</color>
+    <color name="colorPrimaryDark">#031D33</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="dim_foreground_light">#80323232</color>
+    <color name="image_loading_placeholder">#EAE9F7</color>
+    <color name="white">#ffffff</color>
+    <color name="White_70">#b3ffffff</color>
+    <color name="White_30">#4DFFFFFF</color>
+    <color name="White_100">#ffffff</color>
+    <color name="White_60">#99ffffff</color>
+
+</resources>

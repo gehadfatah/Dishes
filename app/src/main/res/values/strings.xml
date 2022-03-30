@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="operational_error_message">unknown error </string>
+    <string name="connection_error">check Internet please</string>
+    <string name="empty_error">empty</string>
+
+    <string name="oops">Ooopss!!</string>
+    <string name="retry">Retry</string>
+    <string name="app_name">Meals</string>
+    <string name="no_internet_connection">no internet connection</string>
+    <string name="timeout_error_message">time out</string>
+    <string name="title_activity_tags_details">TagsDetailsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="meals">Meals</string>
+    <string name="dishes">Dishes</string>
+    <string name="error">Error Fetching Data</string>
+    <string name="no_item_found">No Item Found</string>
+</resources>

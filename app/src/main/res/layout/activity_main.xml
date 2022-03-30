@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:background="@drawable/gradiant_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="@dimen/elevation"
+        android:theme="@style/AppTheme.toolbar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_gravity="center"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/dishes"
+        app:titleTextColor="@color/white" />
+
+    <include
+        layout="@layout/loading_transparent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/loadingTrans"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <include
+        android:id="@+id/no_item"
+        layout="@layout/layout_no_item"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:paddingBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingTop="15dp"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:paddingStart="8dp"
+                android:paddingTop="5dp"
+                app:constraint_referenced_ids="viewDiv,rvTags,itemHeader,rvItemOfTags" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTags"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:clipToPadding="false"
+                android:scrollbarStyle="outsideOverlay"
+                app:layout_constraintEnd_toStartOf="@+id/viewDiv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewDiv"
+                android:layout_width="@dimen/signup16"
+                android:layout_height="150dp"
+                app:layout_constraintStart_toEndOf="@+id/rvTags"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/itemHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/meals"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/header2"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/rvTags" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvItemOfTags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemHeader" />
+            <include
+                android:id="@+id/no_item2"
+                layout="@layout/layout_no_item2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:visibilty="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemHeader" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

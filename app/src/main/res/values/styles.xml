@@ -1,0 +1,69 @@
+<resources>
+
+
+    <style name="MonseratTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:textViewStyle">@style/MonseratTextViewStyle</item>
+        <item name="android:textColorPrimary">@drawable/textview_selector</item>
+        <item name="android:textColorSecondary">@drawable/textview_secundary_selector</item>
+
+        <item name="android:dialogTheme">@style/MyDialogStyle</item>
+        <item name="alertDialogTheme">@style/MyDialogStyle</item>
+    </style>
+    <style name="TranslucentStatusBarTheme" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+    <style name="MyDialogStyle" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/windowBackground</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:textViewStyle">@style/DialogTextViewStyle</item>
+        <item name="windowFixedWidthMajor">90%</item>
+        <item name="windowFixedWidthMinor">90%</item>
+        <item name="textColorAlertDialogListItem">@color/white</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme.toolbar">
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="AppTheme1" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+
+    </style>
+    <style name="DialogTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="colorOnPrimary">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorAccent</item>
+
+    </style>
+
+</resources>
