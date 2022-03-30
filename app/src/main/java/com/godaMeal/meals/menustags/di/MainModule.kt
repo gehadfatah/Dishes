@@ -6,6 +6,7 @@ import com.godaMeal.meals.menustags.data.repoImp.TagRepository
 import com.godaMeal.meals.menustags.data.remote.api.TagsService
 import com.godaMeal.meals.menustags.db.TagsDatabase
 import com.godaMeal.meals.menustags.db.TagsLocalCache
+import com.godaMeal.meals.menustags.db.TagsLocalCacheInterface
 import com.godaMeal.meals.menustags.domain.usecases.TagsPaginationUseCase
 import com.godaMeal.meals.menustags.presentation.MainViewModel
 import org.koin.android.ext.koin.androidContext
@@ -23,7 +24,7 @@ val mainModule = module {
     }*/
     factory { TagsDatabase.getInstance(androidContext()).reposDao() }
     factory { TagsDatabase.getInstance(androidContext()).itemOfTagsDao() }
-    factory { TagsLocalCache(get(), get()) }
+    factory <TagsLocalCacheInterface>{ TagsLocalCache(get(), get()) }
     factory { get<Retrofit>().create(TagsService::class.java) }
     factory<ITagRepository> { TagRepository(get(), get()) }
     viewModel { MainViewModel(get(),get()) }

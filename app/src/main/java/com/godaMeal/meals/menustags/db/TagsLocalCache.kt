@@ -6,28 +6,36 @@ import com.godaMeal.meals.menustags.data.uiModels.ItemOfTags
 import com.godaMeal.meals.menustags.data.uiModels.TagDishe
 import java.util.concurrent.Executors
 
+interface TagsLocalCacheInterface{
+    fun insertTags(tags: List<TagDishe>, insertFinished: () -> Unit)
+    suspend fun insertItemOfTags(itemOfTags: List<ItemOfTags>)
+    suspend fun getTagItemByTagName(name: String): List<ItemOfTags>
+    fun getAllTagData(): DataSource.Factory<Int, TagDishe>
+    fun getAll(): LiveData<List<TagDishe>>
+}
+
 class TagsLocalCache(
     private val tagsDao: TagsDao, private val itemOfTagsDao: ItemOfTagsDao
-) {
-    fun insertTags(tags: List<TagDishe>, insertFinished: () -> Unit) {
+):TagsLocalCacheInterface {
+    override fun insertTags(tags: List<TagDishe>, insertFinished: () -> Unit) {
         Executors.newSingleThreadExecutor().execute {
             tagsDao.insert(tags)
             insertFinished()
         }
     }
 
-    suspend fun insertItemOfTags(itemOfTags: List<ItemOfTags>) {
+    override suspend fun insertItemOfTags(itemOfTags: List<ItemOfTags>) {
         itemOfTagsDao.insert(itemOfTags)
     }
 
-    suspend fun getTagItemByTagName(name: String): List<ItemOfTags> {
+    override suspend fun getTagItemByTagName(name: String): List<ItemOfTags> {
         return itemOfTagsDao.tagsByName(name)
     }
 
-    fun getAllTagData(): DataSource.Factory<Int, TagDishe> {
+    override fun getAllTagData(): DataSource.Factory<Int, TagDishe> {
         return tagsDao.tagsByName()
     }
-    fun getAll(): LiveData<List<TagDishe>> {
+    override fun getAll(): LiveData<List<TagDishe>> {
         return tagsDao.getAll()
     }
 }

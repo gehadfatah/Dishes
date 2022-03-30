@@ -7,6 +7,7 @@ import androidx.paging.PagingState
 import com.godaMeal.meals.menustags.data.remote.api.TagsService
 import com.godaMeal.meals.menustags.data.uiModels.TagDishe
 import com.godaMeal.meals.menustags.db.TagsLocalCache
+import com.godaMeal.meals.menustags.db.TagsLocalCacheInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -15,7 +16,7 @@ class PaginatedSocialFeedRemoteDataSource(
     private val service: TagsService,
 
     private val dataLoaded: () -> Unit,
-   val cache: TagsLocalCache
+   val cache: TagsLocalCacheInterface
 ) :
     PagingSource<Int, TagDishe>() {
     private var lastRequestedPage = 1

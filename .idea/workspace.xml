@@ -19,7 +19,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SYKNW19B02003402]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -53,6 +52,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -70,6 +77,7 @@
   </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -81,8 +89,11 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/com/godaMeal/meals/menustags" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/test/java/com/godaMeal/meals" />
     <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -91,27 +102,39 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\elmenus\Meals\app\src\test\java\com\godaMeal\meals" />
       <recent name="D:\projects\elmenus\Meals" />
       <recent name="D:\projects\elmenus\Meals\app\src\main\res\layout" />
       <recent name="D:\projects\elmenus\Meals\app\src\main\java\com\godaMeal\meals\utils" />
       <recent name="D:\projects\elmenus\Meals\app\src\main\res" />
-      <recent name="D:\projects\elmenus\elMenusTask\app\src\main\java\com\elmenus\elmenustask\base\common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\elmenus\Meals\app\src\test\java\com\godaMeal\meals\menustags\data\local" />
+      <recent name="D:\projects\elmenus\Meals\app\src\test\java\com\godaMeal\meals\menustags\data\repoImp" />
       <recent name="D:\projects\elmenus\Meals\app\src\main\java\com\godaMeal\meals\menustags\presentation\adapters" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.godaMeal.meals.menustags.data.remote.api" />
+      <recent name="com.godaMeal.meals.menustags.domain.usecases" />
+      <recent name="com.godaMeal.meals.menustags.presentation.viewmodel" />
       <recent name="com.godaMeal.meals.menustags.data.remote" />
-      <recent name="com.godaMeal.meals.menustags.data.uiModels" />
-      <recent name="com.godaMeal.meals.menustags.presentation.adapters" />
-      <recent name="com.elmenus.elmenustask.menustags.domain.repo" />
+      <recent name="com.godaMeal.meals.menustags.data.local" />
+      <recent name="com.godaMeal.meals.menustags.data.remote.api" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.godaMeal.meals.menustags.data" />
       <recent name="com.elmenus.elmenustask" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.godaMeal.meals.menustags.domain.usecases" />
+      <recent name="com.godaMeal.meals.menustags.presentation" />
+      <recent name="com.godaMeal.meals.menustags.data.repoImp" />
+      <recent name="com.godaMeal.meals.menustags.data.remote" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.godaMeal.meals.menustags.data.local" />
       <recent name="com.elmenus.elmenustask.base.common" />
       <recent name="com.elmenus.elmenustask.menustags.domain" />
       <recent name="com.elmenus.elmenustask.base.data" />
@@ -122,7 +145,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Gradle.TagRepositoryTest.Given tag name  when gettagbYtagname and exception in local , remote return exception failed  ">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="meals.app" />
       <option name="DEPLOY" value="true" />
@@ -182,30 +205,118 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Meals [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DisheLocalDataSourceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" value="--tests &quot;com.godaMeal.meals.DisheLocalDataSourceTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":app:testDebugUnitTest" />
           </list>
         </option>
-        <option name="vmOptions" value="" />
+        <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MoviesLocalDataSourceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.godaMeal.meals.MoviesLocalDataSourceTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MoviesLocalDataSourceTest.testInvalidEntityArticles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.godaMeal.meals.MoviesLocalDataSourceTest.testInvalidEntityArticles&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TagRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.godaMeal.meals.menustags.data.repoImp.TagRepositoryTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TagRepositoryTest.Given tag name  when gettagbYtagname and exception in local , remote return exception failed  " type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.godaMeal.meals.menustags.data.repoImp.TagRepositoryTest.Given tag name  when gettagbYtagname and exception in local , remote return exception failed  &quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Meals [build]" />
+        <item itemvalue="Gradle.TagRepositoryTest.Given tag name  when gettagbYtagname and exception in local , remote return exception failed  " />
+        <item itemvalue="Gradle.TagRepositoryTest" />
+        <item itemvalue="Gradle.DisheLocalDataSourceTest" />
+        <item itemvalue="Gradle.MoviesLocalDataSourceTest" />
+        <item itemvalue="Gradle.MoviesLocalDataSourceTest.testInvalidEntityArticles" />
       </list>
     </recent_temporary>
   </component>
@@ -262,8 +373,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/godaMeal/meals/menustags/data/remote/PaginatedSocialFeedRemoteDataSource.kt</url>
-          <line>54</line>
+          <line>55</line>
           <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/godaMeal/meals/menustags/data/local/DisheLocalDataSourceTest.kt</url>
+          <line>54</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

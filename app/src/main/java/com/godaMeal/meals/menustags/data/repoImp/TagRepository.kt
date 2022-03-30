@@ -8,9 +8,10 @@ import com.godaMeal.meals.menustags.data.uiModels.ItemOfTags
 import com.godaMeal.meals.menustags.data.uiModels.ItemOfTagsResult
 import com.godaMeal.meals.menustags.data.uiModels.TagDishe
 import com.godaMeal.meals.menustags.db.TagsLocalCache
+import com.godaMeal.meals.menustags.db.TagsLocalCacheInterface
 import com.godaMeal.meals.menustags.domain.repo.ITagRepository
 
-class TagRepository(private val service: TagsService, private val cache: TagsLocalCache) :
+class TagRepository(private val service: TagsService, private val cache: TagsLocalCacheInterface) :
     ITagRepository {
     override fun listTags( dataLoaded : () -> Unit): PagingSource<Int, TagDishe> {
 
