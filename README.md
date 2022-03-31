@@ -47,6 +47,11 @@ This module requires the following modules/libraries:
 
 -use Mockk library for testing
 
+##problem:
+-save all paging date for tags items in database (soleved)
+
+-when navigate to detail then navigate back pagination navigate from start (not solved)
+
 
 
 
