@@ -31,8 +31,6 @@ class TagsAdapter() :
                 onClick(tagItem.tagName)
 
                 index = position
-
-                notifyDataSetChanged()
             }
             holder.itemView.isSelected = index == position
         }

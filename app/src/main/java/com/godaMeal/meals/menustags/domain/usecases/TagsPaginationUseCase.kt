@@ -8,7 +8,7 @@ import com.godaMeal.meals.menustags.data.uiModels.TagDishe
 import com.godaMeal.meals.menustags.domain.repo.ITagRepository
 import kotlinx.coroutines.flow.Flow
 
-const val pageCountItem = 10
+const val pageCountItem = 20
 
 class TagsPaginationUseCase(
     private val repo: ITagRepository
@@ -21,11 +21,12 @@ class TagsPaginationUseCase(
             PagingConfig(
                 pageSize = pageCountItem,
                 enablePlaceholders = true,
-                prefetchDistance = 2
+                prefetchDistance = 10
             ),
         ) {
             repo.listTags(dataLoaded)
         }.flow/*.asLiveData()*/
+
     }
 
 }

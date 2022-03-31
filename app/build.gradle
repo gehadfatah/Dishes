@@ -38,7 +38,7 @@ ext {
     //android X
     // koin_version = "2.0.1"
     koin_version = "3.2.0-beta-1"
-
+    anko_version = "0.10.8"
     androidxVersion = "1.2.1"
     xlifecycle = "2.2.0"
     xpaging = "3.1.0"
@@ -125,6 +125,7 @@ dependencies {
     implementation "androidx.paging:paging-rxjava2-ktx:3.1.1"
 
     implementation 'com.facebook.fresco:fresco:2.6.0'
+    implementation "org.jetbrains.anko:anko:$anko_version"
 
 
     //testing

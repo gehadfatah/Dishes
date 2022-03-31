@@ -11,4 +11,5 @@ interface ITagRepository {
     fun allMovies(): LiveData<List<TagDishe>>
 
     fun listTags(dataLoaded: () -> Unit): PagingSource<Int, TagDishe>
+    suspend fun insertTags(list: List<TagDishe>)
 }

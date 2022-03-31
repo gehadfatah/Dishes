@@ -12,8 +12,8 @@ import com.godaMeal.meals.menustags.data.uiModels.TagDishe
 interface TagsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(tags: List<TagDishe>)
-    @Query("SELECT * FROM tags")
+    suspend fun insert(tags: List<TagDishe>)
+    @Query("SELECT * FROM tags Order By  tagName Asc ")
     fun getAll(): LiveData<List<TagDishe>>
     @Query("SELECT * FROM tags")
     fun tagsByName(): DataSource.Factory<Int, TagDishe>

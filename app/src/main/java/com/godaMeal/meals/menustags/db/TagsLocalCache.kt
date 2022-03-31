@@ -7,7 +7,7 @@ import com.godaMeal.meals.menustags.data.uiModels.TagDishe
 import java.util.concurrent.Executors
 
 interface TagsLocalCacheInterface{
-    fun insertTags(tags: List<TagDishe>, insertFinished: () -> Unit)
+    suspend fun insertTags(tags: List<TagDishe>/*, insertFinished: () -> Unit*/)
     suspend fun insertItemOfTags(itemOfTags: List<ItemOfTags>)
     suspend fun getTagItemByTagName(name: String): List<ItemOfTags>
     fun getAllTagData(): DataSource.Factory<Int, TagDishe>
@@ -17,11 +17,11 @@ interface TagsLocalCacheInterface{
 class TagsLocalCache(
     private val tagsDao: TagsDao, private val itemOfTagsDao: ItemOfTagsDao
 ):TagsLocalCacheInterface {
-    override fun insertTags(tags: List<TagDishe>, insertFinished: () -> Unit) {
-        Executors.newSingleThreadExecutor().execute {
+    override suspend fun insertTags(tags: List<TagDishe>/*, insertFinished: () -> Unit */ ) {
+       // Executors.newSingleThreadExecutor().execute {
             tagsDao.insert(tags)
-            insertFinished()
-        }
+            //insertFinished()
+      //  }
     }
 
     override suspend fun insertItemOfTags(itemOfTags: List<ItemOfTags>) {

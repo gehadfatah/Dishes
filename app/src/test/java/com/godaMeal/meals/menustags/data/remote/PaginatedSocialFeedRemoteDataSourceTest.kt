@@ -4,8 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.goda.movieapp.MainCoroutineRule
 import com.godaMeal.meals.getTagsRequest
 import com.godaMeal.meals.menustags.data.remote.api.TagsService
-import com.godaMeal.meals.menustags.data.uiModels.TagResponse
-import com.godaMeal.meals.menustags.db.TagsLocalCache
+import com.godaMeal.meals.menustags.db.TagsDatabase
 import com.godaMeal.meals.menustags.db.TagsLocalCacheInterface
 import com.godaMeal.meals.tagResponse
 import com.nhaarman.mockitokotlin2.doReturn
@@ -16,7 +15,6 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import retrofit2.Response
 
 @ExperimentalCoroutinesApi
 
@@ -33,10 +31,12 @@ class PaginatedSocialFeedRemoteDataSourceTest{
 
     lateinit var service: TagsService
     lateinit var cache: TagsLocalCacheInterface
+    lateinit var tagsDatabase: TagsDatabase
 
     @Before
     fun setup() {
         cache = mock()
+        tagsDatabase= mock()
     }
     @Test
     fun `remote source get Early Closure return success`() = runBlocking {
@@ -49,7 +49,7 @@ class PaginatedSocialFeedRemoteDataSourceTest{
 
         }
         remoteDataSource =
-            PaginatedSocialFeedRemoteDataSource(service, {  } ,cache = cache )
+            PaginatedSocialFeedRemoteDataSource(service, {  }, cache = cache, tagsDatabase)
        // val result = remoteDataSource.geet(depositCommonRequest)
        // assert(result == depositDetailToCloseResponse)
     }

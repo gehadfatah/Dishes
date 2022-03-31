@@ -4,19 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import androidx.room.withTransaction
 import com.godaMeal.meals.menustags.data.remote.api.TagsService
 import com.godaMeal.meals.menustags.data.uiModels.TagDishe
+import com.godaMeal.meals.menustags.db.TagsDatabase
 import com.godaMeal.meals.menustags.db.TagsLocalCache
 import com.godaMeal.meals.menustags.db.TagsLocalCacheInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.jetbrains.anko.doAsync
 
 
 class PaginatedSocialFeedRemoteDataSource(
     private val service: TagsService,
 
     private val dataLoaded: () -> Unit,
-   val cache: TagsLocalCacheInterface
+    val cache: TagsLocalCacheInterface,
+    val tagsDatabase: TagsDatabase
 ) :
     PagingSource<Int, TagDishe>() {
     private var lastRequestedPage = 1
@@ -31,7 +35,7 @@ class PaginatedSocialFeedRemoteDataSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, TagDishe> {
 
         return try {
-             val page = params.key ?: 0
+             val page = params.key ?:0
            // val top = pageCountItem
             //val skip = params.key ?: 0
             val response =
@@ -41,16 +45,23 @@ class PaginatedSocialFeedRemoteDataSource(
 
             dataLoaded.invoke()
             val list=response.tags
-            cache.insertTags(list) {
-                lastRequestedPage++
-                isRequestInProgress = false
+           // val db=list
 
-            }
-            val databaseList:LiveData<List<TagDishe>>
-            withContext(Dispatchers.IO){
+        /*    doAsync {
+                cache.insertTags(db.subList(0,list.size)) {
+                   *//* lastRequestedPage++
+                    isRequestInProgress = false*//* }
+            }*/
+         //   withContext(Dispatchers.IO){
 
-                 databaseList=cache.getAll()
-            }
+         //   }
+         //   tagsDatabase.withTransaction {
+
+                // Insert new users into database, which invalidates the
+                // current PagingData, allowing Paging to present the updates
+                // in the DB.
+             //   cache.insertTags(db.subList(0,list.size))
+           // }
 
             LoadResult.Page(
                 data =  /*if (list.isEmpty())databaseList.value.orEmpty() else*/ list ?: listOf(),
@@ -84,6 +95,8 @@ class PaginatedSocialFeedRemoteDataSource(
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
-
+  /* override fun getRefreshKey(state: PagingState<Int, TagDishe>): Int? {
+       return null
+   }*/
 
 }

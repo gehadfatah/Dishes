@@ -9,6 +9,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.godaMeal.meals.R
@@ -25,6 +26,8 @@ import com.godaMeal.meals.menustags.presentation.adapters.ItemsOfTagsAdapter
 import com.godaMeal.meals.menustags.presentation.adapters.TagsAdapter
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -54,12 +57,6 @@ class MainActivity : AppCompatActivity() {
                 binding.rootView.showSnakeBar(it)
             }
         })
-        /* viewModel.errorLiveData.observe(this@MainActivity, Observer {
-
-               applicationContext.showLongToast(getString(R.string.error))
-
-
-           })*/
         viewModel.showLoadingLiveData.observe(this, Observer {
             if (it) {
                 showLoading()
@@ -70,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         })
         viewModel.dataloadedLiveData.observe(this) {
             //checkIfNoItem()
+            insertToDatabase()
 
         }
 
@@ -105,12 +103,10 @@ class MainActivity : AppCompatActivity() {
             /* every time connection state changes, we'll be notified and can perform action accordingly */
             if (connection != null && !isDestroyed) {
                 if (connection.isConnected) {
-                    // RelOffline.visibility = View.GONE;
                     callFetchTags()
                 } else {
-                    //RelOffline.visibility = View.VISIBLE;
                     binding.itemHeader.showSnakeBar(getString(R.string.no_internet_connection))
-                    Log.d("d", "onChanged: ");
+                    Log.d("d", "onChanged: ")
 
                 }
             }
@@ -126,35 +122,24 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             rvTags.layoutManager = layoutManager
             rvTags.adapter = tagsAdapter
-            /*  tagsAdapter.addLoadStateListener { loadState ->
-                  if (loadState.source.refresh is LoadState.NotLoading && loadState.append.endOfPaginationReached && tagsAdapter.itemCount < 1) {
-
-                      binding.groupContainer.visibility = View.GONE
-                      binding.noItem.upcomingFeatureLayout.visibility = View.VISIBLE
-                  } else {
-                      binding.groupContainer.visibility = View.VISIBLE
-                      binding.noItem.upcomingFeatureLayout.visibility = View.GONE
-                  }
-              }*/
-
             callFetchTags()
-
-
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     private fun callFetchTags() {
         with(binding) {
             lifecycleScope.launch {
-                viewModel.fetchTags().collect {
-                    lifecycleScope.launchWhenStarted {
-                        tagsAdapter.submitData(it)
-
-
+                viewModel.fetchTags().collectLatest { pagingData ->
+                    lifecycleScope.launch {
+                        tagsAdapter.submitData(pagingData)
                     }
-
-                    lifecycleScope.launchWhenStarted {
-                        delay(500)
+                    // insertToDatabase()
+                    lifecycleScope.launch {
+                        delay(1000)
                         if (tagsAdapter.itemCount < 1)
                             loadDataFromDatabase()
                     }
@@ -166,13 +151,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun insertToDatabase() {
+
+        lifecycleScope.launch {
+            //should do some delay
+            delay(500)
+            if (tagsAdapter.itemCount > 0)
+                viewModel.insertTagsToDatabase(tagsAdapter.snapshot().items)
+        }
+    }
+
     private fun loadDataFromDatabase() {
 
         viewModel.getMoviesFromDatabase()
             .observe(this@MainActivity) { listTags ->
                 if (listTags.data != null && listTags.data.isNotEmpty()) {
                     lifecycleScope.launch {
-                        tagsAdapter.submitData(PagingData.from(listTags.data))
+                        if (tagsAdapter.itemCount < 1)
+                            tagsAdapter.submitData(PagingData.from(listTags.data))
                     }
 
                 }
@@ -192,7 +188,7 @@ class MainActivity : AppCompatActivity() {
 
             itemsOfTagAdapter.submitList(it)
 
-                binding.noItem2.upcomingFeatureLayout.toggleVisibility( it.isEmpty())
+            binding.noItem2.upcomingFeatureLayout.toggleVisibility(it.isEmpty())
 
 
         })

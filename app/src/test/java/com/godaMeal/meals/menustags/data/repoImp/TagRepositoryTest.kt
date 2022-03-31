@@ -3,7 +3,9 @@ package com.godaMeal.meals.menustags.data.repoImp
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.goda.movieapp.MainCoroutineRule
 import com.godaMeal.meals.itemResponse
+import com.godaMeal.meals.menustags.data.remote.RemoteTagDataSouce
 import com.godaMeal.meals.menustags.data.remote.api.TagsService
+import com.godaMeal.meals.menustags.db.TagsDatabase
 import com.godaMeal.meals.menustags.db.TagsLocalCacheInterface
 import com.godaMeal.meals.menustags.domain.repo.ITagRepository
 import com.godaMeal.meals.tagDessertItems
@@ -32,15 +34,19 @@ class TagRepositoryTest {
 
 
     lateinit var localDataSource: TagsLocalCacheInterface
+    lateinit var remoteTagDataSouce: RemoteTagDataSouce
     lateinit var service: TagsService
 
+    lateinit var tagsDatabase: TagsDatabase
 
     @Before
     fun before() {
         service = mock()
         localDataSource = mock()
+        remoteTagDataSouce= mock()
+        tagsDatabase= mock()
 
-        repository = TagRepository(service, localDataSource)
+        repository = TagRepository(service,remoteTagDataSouce, localDataSource, tagsDatabase )
     }
 
     @Test
@@ -48,7 +54,7 @@ class TagRepositoryTest {
         mainCoroutineRule.runBlockingTest {
             //arrange
 
-            Mockito.`when`(service.getAvailableItems(tagName = tagName)).thenReturn(itemResponse)
+            Mockito.`when`(remoteTagDataSouce.getAvailableItems(tagName = tagName)).thenReturn(itemResponse)
 
             //act
             val result = repository.getAvailableItems(tagName)
@@ -65,7 +71,7 @@ class TagRepositoryTest {
 
             Mockito.`when`(localDataSource.getTagItemByTagName(tagName))
                 .thenReturn(itemResponse.itemResponse)
-            Mockito.doThrow(Exception("error")).`when`(service.getAvailableItems(tagName))
+            Mockito.doThrow(Exception("error")).`when`(remoteTagDataSouce.getAvailableItems(tagName))
 
             val result = repository.getAvailableItems(tagName)
 
@@ -81,7 +87,7 @@ class TagRepositoryTest {
         mainCoroutineRule.runBlockingTest {
 
             Mockito.doThrow(Exception("error")).`when`(localDataSource.getTagItemByTagName(tagName))
-            Mockito.doThrow(Exception("error")).`when`(service.getAvailableItems(tagName))
+            Mockito.doThrow(Exception("error")).`when`(remoteTagDataSouce.getAvailableItems(tagName))
 
             repository.getAvailableItems(tagName)
 
